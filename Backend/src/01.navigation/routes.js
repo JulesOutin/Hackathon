@@ -2,9 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 
-const postersController = require("../02.controllers/posters.controller");
-const colorsController = require("../02.controllers/colors.controller");
-
+const jobofferController = require("../02.controllers/joboffer.controller");
+const userController = require("../02.controllers/user.controller");
 
 
 /* ------------------------------------------------------------------------
@@ -19,7 +18,7 @@ router.post("/api/joboffers", jobofferController.createAJoboffer)
 
 router.put("/api/joboffers/:joboffersId", jobofferController.changeAJoboffer)
 
-router.delete("/api/joboffers/:joboffersId", jobofferController.celeteAJoboffer)
+router.delete("/api/joboffers/:joboffersId", jobofferController.deleteAJoboffer)
 
 
 /* ------------------------------------------------------------------------
