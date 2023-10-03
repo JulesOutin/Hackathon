@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import Navbar from '../03.Components/Navbar';
+import './HomePage.css'
+import Card from '../03.Components/Card';
 
 const HomePage = () => {
     // Fonction pour ajouter des option dans le select id="Campus" en fonction de valeurs et les mettre dans l'ordre alphabétique 
@@ -33,25 +34,11 @@ const HomePage = () => {
             }
         }
     }, []);
-    // Sélectionnez l'élément input range par son id
-    var rangeInput = document.getElementById("Tps");
-
-    // Sélectionnez l'élément span par son id
-    var spanValeurRange = document.getElementById("valeurRange");
-
-    // Ajoutez un gestionnaire d'événements "input"
-    rangeInput.addEventListener("input", function () {
-        var valeurRange = rangeInput.value;
-        
-        // Mettez à jour le contenu du span avec la valeur du range
-        spanValeurRange.textContent = valeurRange;
-    });
 
     return (
         <div>
-            <Navbar />
             {/* Création de la barre de recherche */}
-            <div className="">
+            <div id='searchBar'>
                 <input
                     type="text"
                     className="form-control"
@@ -60,26 +47,29 @@ const HomePage = () => {
                     aria-describedby="button-addon2"
                 />
             </div>
-            {/* Création des input pour les filtres */}
-            <label for="">Choisir les filtres</label>
-            <select>
-                <option value="">-- Choisir une option --</option>
-                <option value="search">Je recherche</option>
-                <option value="propose">Je propose</option>
-            </select>
-            <select id="Campus">
-                <option value="">-- Choisir son campus --</option>
-            </select>
-            <select id="Filière">
-                <option value="">-- Choisir la filière --</option>
-            </select>
-            <select id="Tarif">
-                <option value="">-- Tarif --</option>
-            </select>
-            <label for="">Temps de mission :</label>
-            <input type="range" id="Tps" min="0" max="31" step="1" />
-            <span id="valeurRange"></span>
-            {/* Création  */}
+            <label id='labelTitle' for="">Choisir les filtres</label>
+            <div id='filter'>
+                {/* Création des input pour les filtres */}
+                <select>
+                    <option value="">Choisir une option</option>
+                    <option value="search">Je recherche</option>
+                    <option value="propose">Je propose</option>
+                </select>
+                <select id="Campus">
+                    <option value="">Choisir son campus</option>
+                </select>
+                <select id="Filière">
+                    <option value="">Choisir la filière</option>
+                </select>
+                <select id="Tarif">
+                    <option value="">Tarif</option>
+                </select>
+                <label for="">Temps de mission :</label>
+                {/* input range */}
+                <input type="range" id="start" name="volume" min="0" max="31"></input>
+                <button type="">Filtrer</button>
+            </div>
+            <Card />
         </div>
     );
 };
