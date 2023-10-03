@@ -8,22 +8,29 @@ const colorsController = require("../02.controllers/colors.controller");
 
 
 /* ------------------------------------------------------------------------
-Routes Posters
+Routes Joboffers
 ------------------------------------------------------------------------- */
 
-router.get("/posters", postersController.getAllPosters)
-router.post("/posters", postersController.createOnePoster)
-router.put("/posters/:postersId", postersController.updateOnePoster)
-router.delete("/posters/:postersId", postersController.deleteOnePoster)
+router.get("/api/joboffers", jobofferController.getAllJoboffer)
+router.get("/api/joboffers/:jobofferId", jobofferController.getAJoboffer)
+router.get("/api/joboffers/users/:userId", jobofferController.getAllJobofferFromUser)
 
+router.post("/api/joboffers", jobofferController.createAJoboffer)
 
+router.put("/api/joboffers/:joboffersId", jobofferController.changeAJoboffer)
+
+router.delete("/api/joboffers/:joboffersId", jobofferController.celeteAJoboffer)
 
 
 /* ------------------------------------------------------------------------
-Routes colors
+Routes Users
 ------------------------------------------------------------------------- */
 
-router.get("/colors", colorsController.getAllColors)
+router.get("/api/users", userController.getAllUser)
+router.get("/api/users/:userId", userController.getAUser)
+
+router.post("/api/user", userController.creatAUser)
+
 
 
 module.exports = router
