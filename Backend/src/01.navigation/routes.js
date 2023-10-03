@@ -2,28 +2,34 @@ const express = require("express");
 const router = express.Router();
 
 
-const postersController = require("../02.controllers/posters.controller");
-const colorsController = require("../02.controllers/colors.controller");
-
-
-
-/* ------------------------------------------------------------------------
-Routes Posters
-------------------------------------------------------------------------- */
-
-router.get("/posters", postersController.getAllPosters)
-router.post("/posters", postersController.createOnePoster)
-router.put("/posters/:postersId", postersController.updateOnePoster)
-router.delete("/posters/:postersId", postersController.deleteOnePoster)
-
-
+const jobofferController = require("../02.controllers/joboffer.controller");
+const userController = require("../02.controllers/user.controller");
 
 
 /* ------------------------------------------------------------------------
-Routes colors
+Routes Joboffers
 ------------------------------------------------------------------------- */
 
-router.get("/colors", colorsController.getAllColors)
+router.get("/api/joboffers", jobofferController.getAllJoboffer)
+router.get("/api/joboffers/:jobofferId", jobofferController.getAJoboffer)
+router.get("/api/joboffers/users/:userId", jobofferController.getAllJobofferFromUser)
+
+router.post("/api/joboffers", jobofferController.createAJoboffer)
+
+router.put("/api/joboffers/:joboffersId", jobofferController.changeAJoboffer)
+
+router.delete("/api/joboffers/:joboffersId", jobofferController.deleteAJoboffer)
+
+
+/* ------------------------------------------------------------------------
+Routes Users
+------------------------------------------------------------------------- */
+
+router.get("/api/users", userController.getAllUser)
+router.get("/api/users/:userId", userController.getAUser)
+
+router.post("/api/user", userController.creatAUser)
+
 
 
 module.exports = router

@@ -13,5 +13,7 @@ const getAllColors = (req, res) => {
 
 
 module.exports = {
-    getAllColors,
+    getAllUser,
+    getAUser,
+    createAUser
 }
