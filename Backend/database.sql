@@ -10,38 +10,49 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 
 
 -- -----------------------------------------------------
--- Table `posters`
+-- Table `users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `posters`(
-  `poster_id` INT NOT NULL AUTO_INCREMENT,
-  `poster_text` TEXT,
-  `poster_date` DATETIME DEFAULT CURRENT_TIMESTAMP,
-  `id_color` INT NOT NULL,
-  PRIMARY KEY (`poster_id`),
-  FOREIGN KEY (`id_color`) REFERENCES `colors`(`color_id`));
-
-
--- -----------------------------------------------------
--- Table `colors`
--- -----------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS `colors`(
-  `color_id` INT NOT NULL AUTO_INCREMENT,
-  `color_name` VARCHAR(30) NOT NULL,
-  `color_code` VARCHAR(30) NOT NULL,
-  PRIMARY KEY (`color_id`));
-
+CREATE TABLE IF NOT EXISTS `users`(
+  `user_id` INT NOT NULL AUTO_INCREMENT,
+  `user_email` VARCHAR(50) NOT NULL UNIQUE,
+  `user_description` TEXT,
+  `user_filiere` VARCHAR(50) NOT NULL,
+  `user_hashedPassword` VARCHAR(255) NOT NULL,
+  `user_name` VARCHAR(50) NOT NULL,
+  `user_sharedLink1` VARCHAR(255) NOT NULL,
+  `user_sharedLink2` VARCHAR(255),
+  `user_sharedLink3` VARCHAR(255),
+  PRIMARY KEY (`user_id`));
 
 
 -- -----------------------------------------------------
--- Ajout des colors
+-- Table `joboffers`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `joboffers`(
+  `joboffer_id` INT NOT NULL AUTO_INCREMENT,
+  `joboffer_title` VARCHAR(255) NOT NULL,
+  `joboffer_description` TEXT NOT NULL,
+  `joboffer_price` INT NOT NULL,
+  `joboffer_isWorker` BOOLEAN NOT NULL,
+  `joboffer_localisation` VARCHAR(100) NOT NULL,
+  `joboffer_duration` VARCHAR(100),
+  `joboffer_createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `id_user` INT NOT NULL,
+  PRIMARY KEY (`joboffer_id`),
+  FOREIGN KEY (`id_user`) REFERENCES `users`(`user_id`) ON DELETE CASCADE);
+
+
+
+-- -----------------------------------------------------
+-- Ajout des users
 -- -----------------------------------------------------
 
-INSERT INTO colors (color_name, color_code)
-VALUES ('orange', '#FFC972'),
-       ('salmon', '#FF9B73'),
-       ('purple', '#B692FE'),
-       ('blue', '#01D4FF'),
-       ('fadegreen', '#E4EE91');
+INSERT INTO users (user_email, user_description, user_filiere, user_hashedPassword, user_name, user_sharedLink1)
+VALUES ('blablabla', 'blablabla', 'blablabla', 'blablabla', 'blablabla', 'blablabla');
 
+-- -----------------------------------------------------
+-- Ajout des joboffers
+-- -----------------------------------------------------
 
+INSERT INTO joboffers (joboffer_title, joboffer_description, joboffer_price, joboffer_isWorker, joboffer_localisation, joboffer_duration, id_user)
+VALUES ('bliblibli', 'bliblibli', 18, true, 'bliblibli', 'bliblibli', 1);
