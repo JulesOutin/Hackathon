@@ -16,6 +16,9 @@ const Connexion = () => {
     // Réinitialisez les champs du formulaire après la soumission
     setEmail('');
     setMotDePasse('');
+
+    // Redirigez l'utilisateur vers la page de profil
+
   };
 
   return (

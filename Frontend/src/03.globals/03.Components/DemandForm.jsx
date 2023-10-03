@@ -6,6 +6,7 @@ const DemandeForm = () => {
   const [campus, setCampus] = useState('');
   const [filiere, setFiliere] = useState('');
   const [tarif, setTarif] = useState('');
+  const [tempsMission, setTempsMission] = useState('');
   const [titre, setTitre] = useState('');
   const [description, setDescription] = useState('');
   const [imageURL, setImageURL] = useState('');
@@ -22,6 +23,7 @@ const DemandeForm = () => {
     setCampus('');
     setFiliere('');
     setTarif('');
+    setTempsMission('');
     setTitre('');
     setDescription('');
     setImageURL('');
@@ -80,6 +82,18 @@ const DemandeForm = () => {
             <option value="payant0-50">Payant 0-50€</option>
             <option value="payant50-100">Payant 50-100€</option>
             <option value="payant+100">Payant +100€</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Temps de la mission :</label>
+          <select value={tempsMission} onChange={(e) => setTempsMission(e.target.value)}>
+            <option value="1 semaine">1 semaine</option>
+            <option value="1 mois">1 mois</option>
+            <option value="2 mois">2 mois</option>
+            <option value="3 mois">3 mois</option>
+            <option value="6 mois">6 mois</option>
+            <option value="1 an">1 an</option>
           </select>
         </div>
 

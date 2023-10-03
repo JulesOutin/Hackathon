@@ -9,14 +9,14 @@ const Navbar = () => {
                 <Link to="/">Accueil</Link>
                 </li>
                 <li>
-                <Link to="#">Trouver des services. Acquérir de l’experience</Link>
+                <p>Trouver des services. Acquérir de l’experience</p>
                 </li>
                 <ul>
-                    <li>
                     <p>Gestion d'annonce et compte</p>
-                    </li>
                     <li>
                     <Link to="/login">Poster & gérer une annonce</Link>
+                    </li>
+                    <li>
                     <Link to="/profile">Mon Compte</Link>
                     </li>
                 </ul>
