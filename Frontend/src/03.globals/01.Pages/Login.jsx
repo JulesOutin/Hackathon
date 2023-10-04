@@ -11,9 +11,7 @@ const Login = () => {
     return (
         <div className="h-full w-full max-w-7xl p-6 flex flex-col gap-40">
             <Navbar />
-
             <Authentification />
-
             <Connexion />
             <CreationCompte />
 

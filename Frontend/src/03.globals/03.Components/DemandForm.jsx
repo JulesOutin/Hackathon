@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import Campus from '../03.Components/Campus';
+import Filiere from '../03.Components/Filiere';
 
 const DemandeForm = () => {
   // État local pour stocker les valeurs du formulaire
@@ -42,7 +44,6 @@ const DemandeForm = () => {
   return (
     <div className="">
       <h2 className="sukui-h2">Poster une demande</h2>
-
       <form onSubmit={handleSubmit}>
         <div className="flex my-8 gap-2">
           <select
@@ -57,8 +58,8 @@ const DemandeForm = () => {
             <option value="jePropose">Je propose</option>
             <option value="jeRecherche">Je recherche</option>
           </select>
-
           <select
+            id="Campus"
             className="sukui-select"
             value={campus}
             onChange={(e) => setCampus(e.target.value)}
@@ -67,22 +68,9 @@ const DemandeForm = () => {
             <option selected disabled value="">
               Localisation *
             </option>
-            <option value="france">France entière</option>
-            <option value="aix-en-provence">Aix en Provence</option>
-            <option value="bordeaux">Bordeaux</option>
-            <option value="lille">Lille</option>
-            <option value="lyon">Lyon</option>
-            <option value="montpellier">Montpellier</option>
-            <option value="nantes">Nantes</option>
-            <option value="paris">Paris</option>
-            <option value="rennes">Rennes</option>
-            <option value="rouen">Rouen</option>
-            <option value="sophia">Sophia</option>
-            <option value="strasbourg">Strasbourg</option>
-            <option value="val-d-europe">Val d'Europe</option>
           </select>
-
           <select
+            id="Filière"
             className="sukui-select"
             value={filiere}
             onChange={(e) => setFiliere(e.target.value)}
@@ -91,13 +79,6 @@ const DemandeForm = () => {
             <option select disabled value="">
               Filière *
             </option>
-            <option value="Informatique">INFORMATIQUE</option>
-            <option value="Marketing & Communication">MARKETING</option>
-            <option value="Création & Design">COMMUNICATION</option>
-            <option value="Architecture">COMMUNICATION</option>
-            <option value="Audiovisuel">COMMUNICATION</option>
-            <option value="3D, Animation & Jeux vidéo">COMMUNICATION</option>
-            <option value="Tech & Business">COMMUNICATION</option>
           </select>
 
           <input
@@ -201,32 +182,7 @@ const DemandeForm = () => {
           </button>
         </div>
         
-        <div>
-          <label>Votre nom:</label>
-          <input type="text" value={nomUtilisateur} onChange={(e) => setNomUtilisateur(e.target.value)} />
-        </div>
-
-        <div>
-          <label>Votre Bio:</label>
-          <textarea value={bioUtilisateur} onChange={(e) => setBioUtilisateur(e.target.value)} />
-        </div>
-
-        <div>
-          <label>Email :</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </div>
-
-        <div>
-          <label>Téléphone :</label>
-          <input type="tel" value={telephone} onChange={(e) => setTelephone(e.target.value)} />
-        </div>
-
-        <div>
-          <label>Lien Teams :</label>
-          <input type="url" value={lienTeams} onChange={(e) => setLienTeams(e.target.value)} />
-        </div>
-
-      </form>
+       </form>
     </div>
   );
 };
