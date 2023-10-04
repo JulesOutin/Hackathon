@@ -21,8 +21,6 @@ const DemandeForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Ici, vous pouvez traiter les données du formulaire comme vous le souhaitez
-    // Par exemple, envoyer les données au backend, etc.
 
     // Réinitialiser le formulaire après la soumission
     setTypeAnnonce('');
@@ -33,6 +31,12 @@ const DemandeForm = () => {
     setTitre('');
     setDescription('');
     setImageURL('');
+    setNomUtilisateur('');
+    setBioUtilisateur('');
+    setEmail('');
+    setTelephone('');
+    setLienTeams('');
+
   };
 
   return (
