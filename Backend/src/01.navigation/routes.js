@@ -28,7 +28,7 @@ Routes Users
 router.get("/api/users", userController.getAllUser)
 router.get("/api/users/:userId", userController.getAUser)
 
-router.post("/api/user", userController.creatAUser)
+router.post("/api/user", userController.createAUser)
 
 
 

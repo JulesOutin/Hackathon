@@ -14,9 +14,9 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `users`(
   `user_id` INT NOT NULL AUTO_INCREMENT,
-  `user_email` VARCHAR(50) NOT NULL UNIQUE,
+  `user_email` VARCHAR(80) NOT NULL UNIQUE,
   `user_description` TEXT,
-  `user_filiere` VARCHAR(50) NOT NULL,
+  `user_filiere` VARCHAR(80) NOT NULL,
   `user_hashedPassword` VARCHAR(255) NOT NULL,
   `user_name` VARCHAR(50) NOT NULL,
   `user_sharedLink1` VARCHAR(255) NOT NULL,
