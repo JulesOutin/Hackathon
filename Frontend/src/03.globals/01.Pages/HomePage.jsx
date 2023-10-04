@@ -7,7 +7,6 @@ import Campus from "../03.Components/Campus";
 import Filiere from "../03.Components/Filiere";
 
 const HomePage = () => {
-
     function normalizeString(str) {
         return str
           .normalize("NFD")
