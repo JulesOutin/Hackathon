@@ -3,60 +3,17 @@ import Navbar from '../03.Components/Navbar';
 import Footer from '../03.Components/Footer';
 import Card from '../03.Components/Card';
 import "./HomePage.css";
+import Campus from "../03.Components/Campus";
+import Filiere from "../03.Components/Filiere";
 
 const HomePage = () => {
-  const Campusynov = [
-    "Nantes",
-    "Paris",
-    "Rouen",
-    "Val d europe",
-    "Rennes",
-    "Bordeaux",
-    "Toulouse",
-    "Lyon",
-    "Montpellier",
-    "Sophia",
-    "Aix-en-Provence",
-    "Strasbourg",
-  ];
 
-  const Filière = [
-    "Informatique",
-    "Marketing & Communication",
-    "Création & Design",
-    "Achitecture",
-    "Audiovisuel",
-    "3D, Animation & jeux vidéo",
-    "Tech & Business",
-  ];
-  useEffect(() => {
-    const selectCampus = document.getElementById("Campus");
-    Campusynov.sort();
-    if (selectCampus && selectCampus.options.length === 1) {
-        // Ajouter les options au select
-        for (let i = 0; i < Campusynov.length; i++) {
-            const opt = Campusynov[i];
-            const campus = document.createElement("option");
-            campus.textContent = opt;
-            campus.value = opt;
-            selectCampus.appendChild(campus);
-        }
-    }
-}, []);
-useEffect (() => {
-    const selectFiliere = document.getElementById("Filière");
-    Filière.sort();
-    if (selectFiliere && selectFiliere.options.length === 1) {
-        // Ajouter les options au select
-        for (let i = 0; i < Filière.length; i++) {
-            const opt = Filière[i];
-            const filiere = document.createElement("option");
-            filiere.textContent = opt;
-            filiere.value = opt;
-            selectFiliere.appendChild(filiere);
-        }
-    }
-}, []);
+    function normalizeString(str) {
+        return str
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase();
+      }
 
   const Tarif = [
     { min: 0, max: 10, label: "0 - 10" },
@@ -93,44 +50,23 @@ useEffect (() => {
 
   const title = [
     "Aide informatique",
-    "Dépannage informatique",
+    "Dépannage informatique à domicile",
     "Montage vidéo",
     "Aide shooting photo",
     "Création Portefolio",
     "Étude de marché",
     "Benchmark",
-    "Création instagram",
+    "Création instagram à domicile",
     "Gestion réseaux sociaux",
     "Tournage clip de rap",
   ];
 
   const tarif = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
-  useEffect(() => {
-    // Filtrer les annonces en fonction du tarif sélectionné
-    if (selectedTarif === "") {
-      // Si aucune tranche de tarif n'est sélectionnée, afficher toutes les annonces
-      setFilteredCards(
-        title.map((cardTitle, index) => ({
-          title: cardTitle,
-          tarif: tarif[index],
-        }))
-      );
-    } else {
-      // Sinon, filtrer les annonces en fonction de la tranche de tarif
-      const [min, max] = selectedTarif.split("-").map(Number);
-      const annoncesFiltrees = title
-        .map((cardTitle, index) => ({
-          title: cardTitle,
-          tarif: tarif[index],
-        }))
-        .filter((annonce) => annonce.tarif >= min && annonce.tarif <= max);
-      setFilteredCards(annoncesFiltrees);
-    }
-  }, [selectedTarif]);
-
   return (
-    <div className="h-full w-full max-w-7xl p-6 flex flex-col gap-40">
+    <div className="h-full w-full p-6 flex flex-col gap-40">
+    <Campus />
+    <Filiere />
       <Navbar />
       <div>
         {/* Création de la barre de recherche */}

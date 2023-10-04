@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Campus from '../03.Components/Campus';
+import Filiere from '../03.Components/Filiere';
 
 const DemandeForm = () => {
   // État local pour stocker les valeurs du formulaire
@@ -31,6 +33,8 @@ const DemandeForm = () => {
 
   return (
     <div>
+      <Campus />
+      <Filiere />
       <h2>Poster une demande</h2>
       <form onSubmit={handleSubmit}>
         {/* Filtres sous forme de liste déroulante */}
@@ -44,34 +48,15 @@ const DemandeForm = () => {
 
         <div>
           <label>Choix du campus :</label>
-          <select value={campus} onChange={(e) => setCampus(e.target.value)}>
-            <option value="">Sélectionnez...</option>
-            <option value="aix-en-provence">Aix en Provence</option>
-            <option value="bordeaux">Bordeaux</option>
-            <option value="lille">Lille</option>
-            <option value="lyon">Lyon</option>
-            <option value="montpellier">Montpellier</option>
-            <option value="nantes">Nantes</option>
-            <option value="paris">Paris</option>
-            <option value="rennes">Rennes</option>
-            <option value="rouen">Rouen</option>
-            <option value="sophia">Sophia</option>
-            <option value="strasbourg">Strasbourg</option>
-            <option value="val-d-europe">Val d'Europe</option>
+          <select id="Campus" value={campus} onChange={(e) => setCampus(e.target.value)}>
+            <option value="">Choisir son campus</option>
           </select>
         </div>
 
         <div>
           <label>Filière :</label>
-          <select value={filiere} onChange={(e) => setFiliere(e.target.value)}>
-            <option value="">Sélectionnez...</option>
-            <option value="informatique-dev">INFORMATIQUE - Développement</option>
-            <option value="informatique-infra">INFORMATIQUE - Infra</option>
-            <option value="informatique-cybersec">INFORMATIQUE - Cybersécurité</option>
-            <option value="informatique-ia-data">INFORMATIQUE - IA & Data</option>
-            <option value="marketing">MARKETING</option>
-            <option value="communication">COMMUNICATION</option>
-            <option value="creation-design">CREATION & DESIGN</option>
+          <select id="Filière" value={filiere} onChange={(e) => setFiliere(e.target.value)}>
+            <option value="">Choisir la filière</option>
           </select>
         </div>
 
