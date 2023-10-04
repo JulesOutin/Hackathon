@@ -1,9 +1,6 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../03.Components/Navbar';
 import Footer from '../03.Components/Footer';
-
-import React, { useEffect } from 'react';
 import './HomePage.css'
 import Card from '../03.Components/Card';
 
@@ -79,6 +76,7 @@ const HomePage = () => {
             </div>
             <Card />
 <Footer />
+        </div>
         </div>
     );
 };

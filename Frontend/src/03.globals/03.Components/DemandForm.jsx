@@ -10,6 +10,12 @@ const DemandeForm = () => {
   const [titre, setTitre] = useState('');
   const [description, setDescription] = useState('');
   const [imageURL, setImageURL] = useState('');
+  const [nomUtilisateur, setNomUtilisateur] = useState('');
+  const [bioUtilisateur, setBioUtilisateur] = useState('');
+  const [email, setEmail] = useState('');
+  const [telephone, setTelephone] = useState('');
+  const [lienTeams, setLienTeams] = useState('');
+
 
   // Fonction pour gérer la soumission du formulaire
   const handleSubmit = (e) => {
@@ -113,6 +119,31 @@ const DemandeForm = () => {
         <div>
           <label>Image (URL) :</label>
           <input type="text" value={imageURL} onChange={(e) => setImageURL(e.target.value)} />
+        </div>
+        
+        <div>
+          <label>Votre nom:</label>
+          <input type="text" value={nomUtilisateur} onChange={(e) => setNomUtilisateur(e.target.value)} />
+        </div>
+
+        <div>
+          <label>Votre Bio:</label>
+          <textarea value={bioUtilisateur} onChange={(e) => setBioUtilisateur(e.target.value)} />
+        </div>
+
+        <div>
+          <label>Email :</label>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        </div>
+
+        <div>
+          <label>Téléphone :</label>
+          <input type="tel" value={telephone} onChange={(e) => setTelephone(e.target.value)} />
+        </div>
+
+        <div>
+          <label>Lien Teams :</label>
+          <input type="url" value={lienTeams} onChange={(e) => setLienTeams(e.target.value)} />
         </div>
 
         {/* Bouton de soumission du formulaire */}
