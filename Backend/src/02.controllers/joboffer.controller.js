@@ -12,8 +12,8 @@ const getAllJoboffer = (req, res) => {
 }
 
 const getAJoboffer = (req, res) => {
-    const { joboffer_Id } = Number(req.params.jobofferId);
-    console.log(joboffer_Id);
+    const joboffer_Id = Number(req.params.jobofferId);
+  
 
     database
         .query(`SELECT * FROM joboffers WHERE joboffer_id = ${joboffer_Id}`)
@@ -42,7 +42,10 @@ const getAllJobofferFromUser = (req, res) => {
 //         .catch((err) => res.status(500).send("Error creating a new poster", err))
 // }
 
+
 const createAJoboffer = (req, res) => {
+    const user_Id = Number(req.params.userId);  // Corrigé ici
+
     const {
         jobofferTitle,
         jobofferDescription,
@@ -50,7 +53,7 @@ const createAJoboffer = (req, res) => {
         jobofferIsWorker,
         jobofferLocalisation,
         jobofferDuration
-      } = req.body;
+    } = req.body;
 
     database
         .query('INSERT INTO joboffers (joboffer_title, joboffer_description, joboffer_price, joboffer_isWorker, joboffer_localisation, joboffer_duration, id_user) VALUES (?, ?, ?, ?, ?, ?, ?)', 
@@ -60,11 +63,16 @@ const createAJoboffer = (req, res) => {
             jobofferPrice,
             jobofferIsWorker,
             jobofferLocalisation,
-            jobofferDuration
+            jobofferDuration,
+            user_Id  // Corrigé ici
         ])
         .then(() => res.status(201).send("Joboffer created"))
-        .catch((err) => res.status(500).send("Error creating a new poster", err))
+        .catch((err) => {
+            console.error(err);  // Ajouté ici
+            res.status(500).send("Error creating a new poster");  // Corrigé ici
+        });
 }
+
 
 // Update
 
@@ -81,10 +89,25 @@ const createAJoboffer = (req, res) => {
 const changeAJoboffer = (req, res) => {
     const { joboffer_Id } = Number(req.params.jobofferId);
   
-    const { joboffer_title, joboffer_description, joboffer_price, joboffer_isWorker, joboffer_localisation, joboffer_duration } = req.body;
+    const { 
+        joboffer_title, 
+        joboffer_description, 
+        joboffer_price, 
+        joboffer_isWorker, 
+        joboffer_localisation, 
+        joboffer_duration 
+    } = req.body;
 
     database
-        .query('UPDATE joboffers SET joboffer_title = ?, joboffer_description = ?, joboffer_price = ?, joboffer_isWorker = ?, joboffer_localisation = ?, joboffer_duration = ? WHERE joboffer_id = ?', [joboffer_title, joboffer_description, joboffer_price, joboffer_isWorker, joboffer_localisation, joboffer_duration, joboffer_Id])
+        .query(`UPDATE joboffers SET joboffer_title = ?, joboffer_description = ?, joboffer_price = ?, joboffer_isWorker = ?, joboffer_localisation = ?, joboffer_duration = ? WHERE joboffer_id = ${joboffer_Id}`, 
+        [
+            joboffer_title, 
+            joboffer_description, 
+            joboffer_price, 
+            joboffer_isWorker, 
+            joboffer_localisation, 
+            joboffer_duration,
+        ])
         .then(() => res.send("Joboffer updated"))
         .catch((err) => res.status(500).send("Error updating joboffer", err))
 }
