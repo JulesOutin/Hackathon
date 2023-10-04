@@ -16,9 +16,9 @@ router.get("/api/joboffers/users/:userId", jobofferController.getAllJobofferFrom
 
 router.post("/api/joboffers", jobofferController.createAJoboffer)
 
-router.put("/api/joboffers/:joboffersId", jobofferController.changeAJoboffer)
+router.put("/api/joboffers/:jobofferId", jobofferController.changeAJoboffer)
 
-router.delete("/api/joboffers/:joboffersId", jobofferController.deleteAJoboffer)
+router.delete("/api/joboffers/:jobofferId", jobofferController.deleteAJoboffer)
 
 
 /* ------------------------------------------------------------------------
