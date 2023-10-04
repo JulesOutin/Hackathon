@@ -6,7 +6,7 @@ import Footer from '../03.Components/Footer';
 
 const PosterDemande = () => {
     return (
-        <div className="h-full w-full max-w-7xl p-6 flex flex-col gap-40">
+        <div className="h-full w-full m-auto max-w-7xl p-6 flex flex-col gap-40">
             <Navbar />
             <DemandeForm />
             <Footer />

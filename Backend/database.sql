@@ -12,17 +12,18 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Table `users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `users`(
-  `user_id` INT NOT NULL AUTO_INCREMENT,
-  `user_email` VARCHAR(80) NOT NULL UNIQUE,
-  `user_description` TEXT,
-  `user_filiere` VARCHAR(80) NOT NULL,
-  `user_hashedPassword` VARCHAR(255) NOT NULL,
-  `user_name` VARCHAR(50) NOT NULL,
-  `user_sharedLink1` VARCHAR(255) NOT NULL,
-  `user_sharedLink2` VARCHAR(255),
-  `user_sharedLink3` VARCHAR(255),
-  PRIMARY KEY (`user_id`));
+-- 
+-- CREATE TABLE IF NOT EXISTS `users`(
+--   `user_id` INT NOT NULL AUTO_INCREMENT,
+--   `user_description` TEXT,
+--   `user_hashedPassword` VARCHAR(255) NOT NULL,
+--   `user_email` VARCHAR(80) NOT NULL,
+--   `user_filiere` VARCHAR(80) NOT NULL,
+--   `user_name` VARCHAR(50) NOT NULL,
+--   `user_sharedLink1` VARCHAR(255) NOT NULL,
+--   `user_sharedLink2` VARCHAR(255),
+--   `user_sharedLink3` VARCHAR(255),
+--   PRIMARY KEY (`user_id`));
 
 
 -- -----------------------------------------------------
@@ -32,14 +33,19 @@ CREATE TABLE IF NOT EXISTS `joboffers`(
   `joboffer_id` INT NOT NULL AUTO_INCREMENT,
   `joboffer_title` VARCHAR(255) NOT NULL,
   `joboffer_description` TEXT NOT NULL,
-  `joboffer_price` INT NOT NULL,
+  `joboffer_price` VARCHAR(20) NOT NULL,
   `joboffer_isWorker` BOOLEAN NOT NULL,
   `joboffer_localisation` VARCHAR(100) NOT NULL,
+  `joboffer_image` TEXT NOT NULL,
   `joboffer_duration` VARCHAR(100),
   `joboffer_createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `id_user` INT NOT NULL,
-  PRIMARY KEY (`joboffer_id`),
-  FOREIGN KEY (`id_user`) REFERENCES `users`(`user_id`) ON DELETE CASCADE);
+  `user_email` VARCHAR(80) NOT NULL,
+  `user_filiere` VARCHAR(80) NOT NULL,
+  `user_name` VARCHAR(50) NOT NULL,
+  `user_sharedLink1` VARCHAR(255) NOT NULL,
+  `user_sharedLink2` VARCHAR(255),
+  `user_sharedLink3` VARCHAR(255),
+  PRIMARY KEY (`joboffer_id`);
 
 
 
