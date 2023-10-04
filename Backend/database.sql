@@ -12,17 +12,18 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Table `users`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `users`(
-  `user_id` INT NOT NULL AUTO_INCREMENT,
-  `user_email` VARCHAR(50) NOT NULL UNIQUE,
-  `user_description` TEXT,
-  `user_filiere` VARCHAR(50) NOT NULL,
-  `user_hashedPassword` VARCHAR(255) NOT NULL,
-  `user_name` VARCHAR(50) NOT NULL,
-  `user_sharedLink1` VARCHAR(255) NOT NULL,
-  `user_sharedLink2` VARCHAR(255),
-  `user_sharedLink3` VARCHAR(255),
-  PRIMARY KEY (`user_id`));
+-- 
+-- CREATE TABLE IF NOT EXISTS `users`(
+--   `user_id` INT NOT NULL AUTO_INCREMENT,
+--   `user_description` TEXT,
+--   `user_hashedPassword` VARCHAR(255) NOT NULL,
+--   `user_email` VARCHAR(80) NOT NULL,
+--   `user_filiere` VARCHAR(80) NOT NULL,
+--   `user_name` VARCHAR(50) NOT NULL,
+--   `user_sharedLink1` VARCHAR(255) NOT NULL,
+--   `user_sharedLink2` VARCHAR(255),
+--   `user_sharedLink3` VARCHAR(255),
+--   PRIMARY KEY (`user_id`));
 
 
 -- -----------------------------------------------------
@@ -32,27 +33,39 @@ CREATE TABLE IF NOT EXISTS `joboffers`(
   `joboffer_id` INT NOT NULL AUTO_INCREMENT,
   `joboffer_title` VARCHAR(255) NOT NULL,
   `joboffer_description` TEXT NOT NULL,
-  `joboffer_price` INT NOT NULL,
+  `joboffer_price` VARCHAR(20) NOT NULL,
   `joboffer_isWorker` BOOLEAN NOT NULL,
   `joboffer_localisation` VARCHAR(100) NOT NULL,
+  `joboffer_image` TEXT NOT NULL,
   `joboffer_duration` VARCHAR(100),
   `joboffer_createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `id_user` INT NOT NULL,
-  PRIMARY KEY (`joboffer_id`),
-  FOREIGN KEY (`id_user`) REFERENCES `users`(`user_id`) ON DELETE CASCADE);
+  `user_email` VARCHAR(80) NOT NULL,
+  `user_filiere` VARCHAR(80) NOT NULL,
+  `user_name` VARCHAR(50) NOT NULL,
+  `user_sharedLink1` VARCHAR(255) NOT NULL,
+  `user_sharedLink2` VARCHAR(255),
+  `user_sharedLink3` VARCHAR(255),
+  PRIMARY KEY (`joboffer_id`);
 
 
 
--- -----------------------------------------------------
--- Ajout des users
--- -----------------------------------------------------
+-- Insertion des utilisateurs
+INSERT INTO users (user_email, user_description, user_filiere, user_hashedPassword, user_name, user_sharedLink1, user_sharedLink2, user_sharedLink3) 
+VALUES 
+('john.doe@example.com', 'Étudiant en informatique', 'Informatique', 'hashed_password_here', 'John Doe', 'https://github.com/johndoe', 'https://linkedin.com/in/johndoe', 'https://twitter.com/johndoe'),
+('jane.doe@example.com', 'Étudiant en marketing', 'Marketing', 'another_hashed_password', 'Jane Doe', 'https://github.com/janedoe', 'https://linkedin.com/in/janedoe', NULL),
+('emily.smith@example.com', 'Étudiant en design', 'Design', 'yet_another_hashed_password', 'Emily Smith', 'https://dribbble.com/emilysmith', NULL, NULL),
+('michael.jones@example.com', 'Étudiant en droit', 'Droit', 'another_hashed_password_here', 'Michael Jones', 'https://linkedin.com/in/michaeljones', NULL, NULL);
 
-INSERT INTO users (user_email, user_description, user_filiere, user_hashedPassword, user_name, user_sharedLink1)
-VALUES ('blablabla', 'blablabla', 'blablabla', 'blablabla', 'blablabla', 'blablabla');
 
--- -----------------------------------------------------
--- Ajout des joboffers
--- -----------------------------------------------------
-
-INSERT INTO joboffers (joboffer_title, joboffer_description, joboffer_price, joboffer_isWorker, joboffer_localisation, joboffer_duration, id_user)
-VALUES ('bliblibli', 'bliblibli', 18, true, 'bliblibli', 'bliblibli', 1);
+-- Insertion des annonces
+INSERT INTO joboffers (joboffer_title, joboffer_description, joboffer_price, joboffer_isWorker, joboffer_localisation, joboffer_duration, id_user) 
+VALUES 
+('Développement d''une application mobile', 'Je recherche quelqu''un pour développer une application mobile simple.', 300, false, 'Paris', '2 semaines', 1),
+('Besoin d''un logo', 'Je peux créer un logo professionnel pour votre entreprise.', 100, true, 'Lyon', '1 semaine', 2),
+('Aide en mathématiques', 'Je propose des cours de mathématiques pour les étudiants en première année.', 50, true, 'Marseille', '1 mois', 1),
+('Conception de site web', 'Je peux concevoir et développer un site web pour vous.', 500, true, 'Lille', '3 semaines', 3),
+('Recherche rédacteur pour blog', 'Je recherche un rédacteur pour mon blog sur le marketing.', 150, false, 'Strasbourg', '4 semaines', 2),
+('Service de babysitting', 'Je propose des services de babysitting pendant les weekends.', 40, true, 'Bordeaux', 'Indéfini', 4),
+('Aide à la rédaction de CV', 'Je peux vous aider à rédiger un CV professionnel.', 30, true, 'Nantes', '1 semaine', 4),
+('Organisation d''événements', 'Je peux aider à organiser des petits événements ou fêtes.', 200, true, 'Toulouse', '2 semaines', 3);

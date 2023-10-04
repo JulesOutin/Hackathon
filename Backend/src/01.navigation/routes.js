@@ -10,25 +10,28 @@ const userController = require("../02.controllers/user.controller");
 Routes Joboffers
 ------------------------------------------------------------------------- */
 
-router.get("/api/joboffers", jobofferController.getAllJoboffer)
-router.get("/api/joboffers/:jobofferId", jobofferController.getAJoboffer)
+router.get("/api/joboffers", jobofferController.getAllJoboffer) /*ok*/
+
+router.get("/api/joboffers/:jobofferId", jobofferController.getAJoboffer) /*ok*/
 router.get("/api/joboffers/users/:userId", jobofferController.getAllJobofferFromUser)
 
-router.post("/api/joboffers", jobofferController.createAJoboffer)
+router.post("/api/joboffers/:userId", jobofferController.createAJoboffer) /*ok*/
 
-router.put("/api/joboffers/:joboffersId", jobofferController.changeAJoboffer)
 
-router.delete("/api/joboffers/:joboffersId", jobofferController.deleteAJoboffer)
+router.put("/api/joboffers/:jobofferId", jobofferController.changeAJoboffer)
+
+router.delete("/api/joboffers/:jobofferId", jobofferController.deleteAJoboffer)
 
 
 /* ------------------------------------------------------------------------
 Routes Users
 ------------------------------------------------------------------------- */
 
-router.get("/api/users", userController.getAllUser)
-router.get("/api/users/:userId", userController.getAUser)
+router.get("/api/users", userController.getAllUser) /*ok*/
+router.get("/api/users/:userId", userController.getAUser) /*ok*/
 
-router.post("/api/user", userController.creatAUser)
+router.post("/api/users", userController.createAUser) /*ok*/
+
 
 
 

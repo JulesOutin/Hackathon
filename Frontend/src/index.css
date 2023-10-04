@@ -66,7 +66,7 @@
 }
 
 .sukui-input {
-    @apply border border-slate-300 text-slate-500 py-3 px-5 rounded-lg bg-slate-100 w-full duration-700
+    @apply border border-gray-300 text-gray-500 py-3 px-4 rounded-lg w-full duration-700 
 }
 
 .sukui-input:focus {
@@ -74,7 +74,11 @@
 }
 
 .sukui-select {
-    @apply border border-slate-300 text-slate-500 py-3 px-5 rounded-lg bg-slate-100 w-full outline-none
+    @apply border border-gray-300 text-gray-500 py-3 px-4 rounded-lg w-full outline-none tracking-tight
+}
+
+.sukui-select:focus {
+    @apply outline-slate-800
 }
 
 /* dashboard */
