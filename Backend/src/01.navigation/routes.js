@@ -10,7 +10,8 @@ const userController = require("../02.controllers/user.controller");
 Routes Joboffers
 ------------------------------------------------------------------------- */
 
-router.get("/api/joboffers", jobofferController.getAllJoboffer)
+router.get("/api/joboffers", jobofferController.getAllJoboffer) /*ok*/
+
 router.get("/api/joboffers/:jobofferId", jobofferController.getAJoboffer)
 router.get("/api/joboffers/users/:userId", jobofferController.getAllJobofferFromUser)
 
@@ -25,10 +26,12 @@ router.delete("/api/joboffers/:jobofferId", jobofferController.deleteAJoboffer)
 Routes Users
 ------------------------------------------------------------------------- */
 
-router.get("/api/users", userController.getAllUser)
+router.get("/api/users", userController.getAllUser) /*ok*/
 router.get("/api/users/:userId", userController.getAUser)
+/*ok*/
 
-router.post("/api/user", userController.createAUser)
+router.post("/api/users", userController.createAUser) /*ok*/
+
 
 
 

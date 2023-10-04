@@ -13,6 +13,7 @@ const getAllJoboffer = (req, res) => {
 
 const getAJoboffer = (req, res) => {
     const { joboffer_Id } = Number(req.params.jobofferId);
+    console.log(joboffer_Id);
 
     database
         .query(`SELECT * FROM joboffers WHERE joboffer_id = ${joboffer_Id}`)

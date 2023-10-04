@@ -43,16 +43,23 @@ CREATE TABLE IF NOT EXISTS `joboffers`(
 
 
 
--- -----------------------------------------------------
--- Ajout des users
--- -----------------------------------------------------
+-- Insertion des utilisateurs
+INSERT INTO users (user_email, user_description, user_filiere, user_hashedPassword, user_name, user_sharedLink1, user_sharedLink2, user_sharedLink3) 
+VALUES 
+('john.doe@example.com', 'Étudiant en informatique', 'Informatique', 'hashed_password_here', 'John Doe', 'https://github.com/johndoe', 'https://linkedin.com/in/johndoe', 'https://twitter.com/johndoe'),
+('jane.doe@example.com', 'Étudiant en marketing', 'Marketing', 'another_hashed_password', 'Jane Doe', 'https://github.com/janedoe', 'https://linkedin.com/in/janedoe', NULL),
+('emily.smith@example.com', 'Étudiant en design', 'Design', 'yet_another_hashed_password', 'Emily Smith', 'https://dribbble.com/emilysmith', NULL, NULL),
+('michael.jones@example.com', 'Étudiant en droit', 'Droit', 'another_hashed_password_here', 'Michael Jones', 'https://linkedin.com/in/michaeljones', NULL, NULL);
 
-INSERT INTO users (user_email, user_description, user_filiere, user_hashedPassword, user_name, user_sharedLink1)
-VALUES ('blablabla', 'blablabla', 'blablabla', 'blablabla', 'blablabla', 'blablabla');
 
--- -----------------------------------------------------
--- Ajout des joboffers
--- -----------------------------------------------------
-
-INSERT INTO joboffers (joboffer_title, joboffer_description, joboffer_price, joboffer_isWorker, joboffer_localisation, joboffer_duration, id_user)
-VALUES ('bliblibli', 'bliblibli', 18, true, 'bliblibli', 'bliblibli', 1);
+-- Insertion des annonces
+INSERT INTO joboffers (joboffer_title, joboffer_description, joboffer_price, joboffer_isWorker, joboffer_localisation, joboffer_duration, id_user) 
+VALUES 
+('Développement d''une application mobile', 'Je recherche quelqu''un pour développer une application mobile simple.', 300, false, 'Paris', '2 semaines', 1),
+('Besoin d''un logo', 'Je peux créer un logo professionnel pour votre entreprise.', 100, true, 'Lyon', '1 semaine', 2),
+('Aide en mathématiques', 'Je propose des cours de mathématiques pour les étudiants en première année.', 50, true, 'Marseille', '1 mois', 1),
+('Conception de site web', 'Je peux concevoir et développer un site web pour vous.', 500, true, 'Lille', '3 semaines', 3),
+('Recherche rédacteur pour blog', 'Je recherche un rédacteur pour mon blog sur le marketing.', 150, false, 'Strasbourg', '4 semaines', 2),
+('Service de babysitting', 'Je propose des services de babysitting pendant les weekends.', 40, true, 'Bordeaux', 'Indéfini', 4),
+('Aide à la rédaction de CV', 'Je peux vous aider à rédiger un CV professionnel.', 30, true, 'Nantes', '1 semaine', 4),
+('Organisation d''événements', 'Je peux aider à organiser des petits événements ou fêtes.', 200, true, 'Toulouse', '2 semaines', 3);
