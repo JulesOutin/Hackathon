@@ -92,14 +92,28 @@
     margin: 0px 30px; /* indquer les marges gauche et droite */
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 30px;
-    height: 80px;
-    background-color: #09090900;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+h1
+{
+    font-size: 2rem;
+    font-weight: bold;    
+    margin-bottom: 2rem; /* Marge en bas du titre */
+    color: black;
+    text-align: center;
+
+}
+h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem; /* Marge en bas du titre */
+    color: black;
+    text-align: center;
 
 }
 
+p {
+    font-size: 1rem;
+    margin-bottom: 1rem; /* Marge en bas du titre */
+    color: black;
+
+}

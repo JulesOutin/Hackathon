@@ -3,8 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer>
-      <p> 2023 - YTalents. Tous droits réservés. Made by Jean-Emmanuel, Jules et Youen.
-    </p>
+      <p> 2023 - YTalents. Tous droits réservés. Made by Jean-Emmanuel, Jules et Youen.</p>
     </footer>
   );
 };

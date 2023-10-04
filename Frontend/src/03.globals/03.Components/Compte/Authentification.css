@@ -1,0 +1,18 @@
+
+.title-container {
+    text-align: center; /* Centrage horizontal */
+    margin-bottom: 2rem; /* Marge en bas pour séparer du contenu ci-dessous */
+  }
+  
+.auth-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .connexion-container,
+  .creation-container {
+    width: 100%; 
+  }
+  

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const DemandeForm = () => {
   // État local pour stocker les valeurs du formulaire
+
   const [typeAnnonce, setTypeAnnonce] = useState("");
   const [campus, setCampus] = useState("");
   const [filiere, setFiliere] = useState("");
@@ -20,6 +21,7 @@ const DemandeForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+
     // Réinitialiser le formulaire après la soumission
     setTypeAnnonce("");
     setCampus("");
@@ -34,6 +36,7 @@ const DemandeForm = () => {
     setEmail("");
     setTelephone("");
     setLienTeams("");
+
   };
 
   return (
@@ -196,6 +199,31 @@ const DemandeForm = () => {
           <button className="sukui-button w-fit m-auto" type="submit">
             Poster la demande
           </button>
+        </div>
+        
+        <div>
+          <label>Votre nom:</label>
+          <input type="text" value={nomUtilisateur} onChange={(e) => setNomUtilisateur(e.target.value)} />
+        </div>
+
+        <div>
+          <label>Votre Bio:</label>
+          <textarea value={bioUtilisateur} onChange={(e) => setBioUtilisateur(e.target.value)} />
+        </div>
+
+        <div>
+          <label>Email :</label>
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        </div>
+
+        <div>
+          <label>Téléphone :</label>
+          <input type="tel" value={telephone} onChange={(e) => setTelephone(e.target.value)} />
+        </div>
+
+        <div>
+          <label>Lien Teams :</label>
+          <input type="url" value={lienTeams} onChange={(e) => setLienTeams(e.target.value)} />
         </div>
 
       </form>

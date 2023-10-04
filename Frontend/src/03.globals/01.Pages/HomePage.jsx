@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
-import Navbar from "../03.Components/Navbar";
-import Footer from "../03.Components/Footer";
-import "./HomePage.css";
-import Card from "../03.Components/Card";
+import React, { useEffect } from 'react';
+import Navbar from '../03.Components/Navbar';
+import Footer from '../03.Components/Footer';
+import './HomePage.css'
+import Card from '../03.Components/Card';
+
 
 const HomePage = () => {
   // Fonction pour ajouter des option dans le select id="Campus" en fonction de valeurs et les mettre dans l'ordre alphabétique

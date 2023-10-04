@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './CreationConnexionCompte.css'; 
 
 const Connexion = () => {
   // États pour suivre les champs du formulaire
@@ -24,19 +25,17 @@ const Connexion = () => {
   return (
     <form onSubmit={handleSubmit}>
       {/* Champ d'e-mail du formulaire */}
-      <div>
+      <div className="form-container">
         <label>E-mail:</label>
         <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-      </div>
       
       {/* Champ de mot de passe du formulaire */}
-      <div>
         <label>Mot de Passe:</label>
         <input type="password" value={motDePasse} onChange={(e) => setMotDePasse(e.target.value)} required />
-      </div>
       
       {/* Bouton de soumission du formulaire */}
       <button type="submit">Se Connecter</button>
+      </div>
     </form>
   );
 };
