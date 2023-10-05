@@ -13,6 +13,18 @@ const Navbar = () => {
             <li>
             Trouver des services. Acquérir de l’expérience
             </li>
+            <li>
+            <Link to="/posterDemande">Poster une demande</Link>
+            </li>
+        </ul>
+        </nav>
+
+    );
+};
+
+export default Navbar;
+
+/*
             <li className="dropdown">
             <span>Gestion d'annonce et compte</span>
             <ul className="dropdown-content">
@@ -24,10 +36,4 @@ const Navbar = () => {
                 </li>
             </ul>
             </li>
-        </ul>
-        </nav>
-
-    );
-};
-
-export default Navbar;
+            */
