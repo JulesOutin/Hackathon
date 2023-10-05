@@ -15,7 +15,7 @@ router.get("/api/joboffers", jobofferController.getAllJoboffer) /*ok*/
 router.get("/api/joboffers/:jobofferId", jobofferController.getAJoboffer) /*ok*/
 router.get("/api/joboffers/users/:userId", jobofferController.getAllJobofferFromUser)
 
-router.post("/api/joboffers/:userId", jobofferController.createAJoboffer) /*ok*/
+router.post("/api/joboffers", jobofferController.createAJoboffer) 
 
 
 router.put("/api/joboffers/:jobofferId", jobofferController.changeAJoboffer)

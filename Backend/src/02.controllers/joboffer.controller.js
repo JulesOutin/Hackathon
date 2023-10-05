@@ -31,10 +31,7 @@ const getAllJobofferFromUser = (req, res) => {
 }
 
 
-// Create 
-
 const createAJoboffer = (req, res) => {
-    const user_Id = Number(req.params.userId);  // Corrigé ici
 
     const {
         jobofferTitle,
@@ -42,26 +39,55 @@ const createAJoboffer = (req, res) => {
         jobofferPrice,
         jobofferIsWorker,
         jobofferLocalisation,
-        jobofferDuration
+        jobofferDuration,
+        jobofferImage, 
+        userEmail, 
+        userFiliere, 
+        userName, 
+        userPhone, 
+        userDiscord 
     } = req.body;
 
+    const query = `
+        INSERT INTO joboffers (
+            joboffer_title, 
+            joboffer_description, 
+            joboffer_price, 
+            joboffer_isWorker, 
+            joboffer_localisation, 
+            joboffer_duration,
+            joboffer_image, 
+            user_email,
+            user_filiere,
+            user_name,
+            user_phone,
+            user_discord
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
     database
-        .query('INSERT INTO joboffers (joboffer_title, joboffer_description, joboffer_price, joboffer_isWorker, joboffer_localisation, joboffer_duration, id_user) VALUES (?, ?, ?, ?, ?, ?, ?)', 
-        [
-            jobofferTitle,
-            jobofferDescription, 
-            jobofferPrice,
-            jobofferIsWorker,
-            jobofferLocalisation,
-            jobofferDuration,
-            user_Id  // Corrigé ici
-        ])
-        .then(() => res.status(201).send("Joboffer created"))
+        .query(query,
+            [
+                jobofferTitle,
+                jobofferDescription,
+                jobofferPrice,
+                jobofferIsWorker,
+                jobofferLocalisation,
+                jobofferDuration,
+                jobofferImage,
+                userEmail,
+                userFiliere,
+                userName,
+                userPhone,
+                userDiscord
+            ])
+        .then(() => res.status(201).json({ message: "Job offer created" }))
         .catch((err) => {
-            console.error(err);  // Ajouté ici
-            res.status(500).send("Error creating a new poster");  // Corrigé ici
+            console.error(err);
+            res.status(500).send("Error creating a new job offer");
         });
-}
+};
+
 
 
 // Update

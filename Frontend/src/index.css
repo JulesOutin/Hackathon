@@ -50,11 +50,11 @@
 }
 
 .sukui-button {
-    @apply bg-slate-900 text-slate-100 py-3 px-5 rounded-lg font-semibold duration-500;
+    @apply bg-primary text-slate-100 py-3 px-5 rounded-lg font-semibold duration-500;
 }
 
 .sukui-button:hover {
-    @apply bg-slate-700
+    @apply bg-primraryLight
 }
 
 .sukui-button2 {
@@ -66,19 +66,19 @@
 }
 
 .sukui-input {
-    @apply border border-gray-300 text-gray-500 py-3 px-4 rounded-lg w-full duration-700 
+    @apply border border-gray-300 text-gray-500 py-3 px-4 outline-none rounded-lg w-full duration-700 
 }
 
 .sukui-input:focus {
-    @apply outline-slate-800
+    @apply outline-primary
 }
 
 .sukui-select {
-    @apply border border-gray-300 text-gray-500 py-3 px-4 rounded-lg w-full outline-none tracking-tight
+    @apply border border-gray-300 text-gray-500 py-3 px-4 rounded-lg outline-none w-full tracking-tight duration-700
 }
 
 .sukui-select:focus {
-    @apply outline-slate-800
+    @apply outline-primary
 }
 
 /* dashboard */
