@@ -62,55 +62,67 @@ const HomePage = () => {
 
   const tarif = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
-  return (
-    <div className="h-full w-full p-6 flex flex-col gap-40">
-    <Campus />
+    return (
+        <div className="h-full w-full p-6 flex flex-col gap-40">
+<Campus />
     <Filiere />
-      <Navbar />
-      <div>
-        {/* Création de la barre de recherche */}
-        <div id="searchBar">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Rechercher..."
-            aria-label="Rechercher un film"
-            aria-describedby="button-addon2"
-            value={searchString}
-            onChange={(e) => setSearchString(e.target.value)}
-          />
-        </div>
-        <label id="labelTitle" htmlFor="">
-          Choisir les filtres
-        </label>
-        <div id="filter">
-          {/* Création des input pour les filtres */}
-          <select>
-            <option value="">Choisir une option</option>
-            <option value="search">Je recherche</option>
-            <option value="propose">Je propose</option>
-          </select>
-          <select id="Campus">
-            <option value="">Choisir son campus</option>
-          </select>
-          <select id="Filière">
-            <option value="">Choisir la filière</option>
-          </select>
-          <select
-            id="Tarif"
-            value={selectedTarif}
-            onChange={(e) => setSelectedTarif(e.target.value)}
-          >
-            <option value="">Choisir une tranche de tarif</option>
-            {Tarif.map((tranche, index) => (
+            <Navbar />
+        <div>
+            {/* Création de la barre de recherche */}
+            <div id="searchBar">
+                <input
+                    type="text"
+                    className="sukui-input max-w-5xl"
+                    placeholder="Rechercher..."
+                    aria-label="Rechercher un film"
+                    aria-describedby="button-addon2"
+                    value={searchString}
+                    onChange={(e) => setSearchString(e.target.value)}
+                />
+            </div>
+            <label id="labelTitle" htmlFor="">
+                Choisir les filtres
+            </label>
+            <div 
+                className="gap-2 max-w-5xl m-auto"            
+                id="filter"
+            >
+                {/* Création des input pour les filtres */}
+                <select 
+                    className='sukui-select'
+                >
+                    <option value="">Choisir une option</option>
+                    <option value="search">Je recherche</option>
+                    <option value="propose">Je propose</option>
+                </select>
+                <select 
+                    className='sukui-select'
+                    id="Campus"
+                >
+                    <option value="">Choisir son campus</option>
+                </select>
+                <select 
+                    className='sukui-select'
+                    id="Filière"
+                >
+                    <option value="">Choisir la filière</option>
+                </select>
+                <select
+                    className='sukui-select'
+                    id="Tarif"
+                    value={selectedTarif}
+                    onChange={(e) => setSelectedTarif(e.target.value)}
+                >
+                    <option value="">Choisir une tranche de tarif</option>
+                    {Tarif.map((tranche, index) => (
               <option key={index} value={`${tranche.min}-${tranche.max}`}>
                 {tranche.label}
               </option>
             ))}
-          </select>
-          <button onClick={() => {}}>Filtrer</button>
-        </div>
-        <div id="cards">
+                </select>
+                {/* <button onClick={() => {}}>Filtrer</button> */}
+            </div>
+            <div id="cards">
             {/* Affichage des cards */}
             {filteredCards
                 .filter((card) =>
@@ -120,10 +132,10 @@ const HomePage = () => {
                 <Card key={index} title={card.title} tarif={card.tarif} />
                 ))}
         </div>
-      </div>
+</div>
       <Footer />
     </div>
-  );
+    );
 };
 
 export default HomePage;
