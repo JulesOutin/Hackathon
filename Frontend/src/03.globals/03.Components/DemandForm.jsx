@@ -36,7 +36,7 @@ const DemandeForm = () => {
     <div className="">
       <Campus />
       <Filiere />
-      <h2 className="sukui-h2">Poster une demande</h2>
+      <h2 className="grotesk-title">Poster une annonce</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex my-8 gap-2">
           <select

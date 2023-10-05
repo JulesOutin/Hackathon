@@ -1,21 +1,14 @@
 // DetailDemandePage.jsx
 import React from 'react';
 
-const DetailDemandePage = ({
-  typeAnnonce,
-  campus,
-  filiere,
-  tarif,
-  tempsMission,
-  titre,
-  description,
-  imageURL,
-  nomUtilisateur,
-  bioUtilisateur,
-  email,
-  telephone,
-  lienTeams,
-}) => {
+const DetailDemandePage = () => {
+
+
+
+
+
+
+  
   return (
     <div className="p-8 bg-gray-100 text-center">
       {/* Titre centré au-dessus des deux colonnes */}

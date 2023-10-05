@@ -4,6 +4,7 @@ import PosterDemande from "../03.globals/01.Pages/PosterDemande";
 import Login from "../03.globals/01.Pages/Login";
 import Profile from "../03.globals/01.Pages/Profile";
 import DetailsDemandes from "../03.globals/01.Pages/DetailsDemandes";
+import AnnonceDetail from "../03.globals/01.Pages/AnnonceDetail";
 
 function Router() {
     return (
@@ -13,10 +14,10 @@ function Router() {
             // redirection automatique si la page n'existe pas
 
             // Route page PosterDemande
-            <Route path="/posterDemande" element={<PosterDemande />} /> 
+            <Route path="/ajouter" element={<PosterDemande />} /> 
 
             // Route page Détails Demande
-            <Route path="/detailsdemandes" element={<DetailsDemandes />} />
+            <Route path="/annonce/:id" element={<AnnonceDetail />} />
 
             // Route page Login
             <Route path="/login" element={<Login />} />
