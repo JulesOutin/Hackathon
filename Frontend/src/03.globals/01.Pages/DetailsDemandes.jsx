@@ -22,7 +22,7 @@ const exempleDemande = {
 
 const DetailsDemandes = () => {
     return (
-        <div className="h-full w-full max-w-7xl p-6 flex flex-col gap-40">
+        <div className="h-full w-full m-auto max-w-7xl p-6 flex flex-col gap-40">
             <Navbar />
             <DetailDemandeComponent {...exempleDemande}/>
             <Footer />
