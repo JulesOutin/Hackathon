@@ -5,14 +5,18 @@ import Card from '../03.Components/Card';
 import "./HomePage.css";
 import Campus from "../03.Components/Campus";
 import Filiere from "../03.Components/Filiere";
+import Data from "../03.Components/Data";
 
 const HomePage = () => {
-    function normalizeString(str) {
-        return str
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .toLowerCase();
-      }
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Effectuer la requête GET vers votre API locale
+    fetch('http://localhost:3001/api/joboffers')
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => console.error('Erreur lors de la récupération des données :', error));
+  }, []);
 
   const Tarif = [
     { min: 0, max: 10, label: "0 - 10" },
@@ -59,11 +63,21 @@ const HomePage = () => {
     "Gestion réseaux sociaux",
     "Tournage clip de rap",
   ];
+  
+  // Remplacer la const au dessus par celle-ci
+  //const title = data.map(item =>{item.joboffer_title})
 
   const tarif = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
+  // Remplacer la const au dessus par celle-ci
+  // const tarif = data.map(item =>{item.joboffer_price})
+
+  // Ajouter la description 
+  // const description = data.map(item =>{item.joboffer_description})
+
     return (
         <div className="h-full w-full p-6 flex flex-col gap-40">
+          <Data />
 <Campus />
     <Filiere />
             <Navbar />
