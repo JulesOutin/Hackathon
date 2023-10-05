@@ -3,6 +3,7 @@ import HomePage from "../03.globals/01.Pages/HomePage";
 import PosterDemande from "../03.globals/01.Pages/PosterDemande";
 import Login from "../03.globals/01.Pages/Login";
 import Profile from "../03.globals/01.Pages/Profile";
+import DetailsDemandes from "../03.globals/01.Pages/DetailsDemandes";
 
 function Router() {
     return (
@@ -12,12 +13,14 @@ function Router() {
             // redirection automatique si la page n'existe pas
 
             // Route page PosterDemande
-            <Route path="/posterDemande" element={<PosterDemande />} />
+            <Route path="/posterDemande" element={<PosterDemande />} /> 
+
+            // Route page Détails Demande
+            <Route path="/detailsdemandes" element={<DetailsDemandes />} />
 
             // Route page Login
             <Route path="/login" element={<Login />} />
         
-
             // Route page Profile
             <Route path="profile" element={<Profile />} />
             <Route path="*" element={<Navigate to="/" />} />
