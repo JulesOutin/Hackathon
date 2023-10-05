@@ -3,69 +3,68 @@
 -- Model: New Model    Version: 1.0
 -- MySQL Workbench Forward Engineering
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-
-
 
 -- -----------------------------------------------------
--- Table `users`
--- -----------------------------------------------------
--- 
--- CREATE TABLE IF NOT EXISTS `users`(
---   `user_id` INT NOT NULL AUTO_INCREMENT,
---   `user_description` TEXT,
---   `user_hashedPassword` VARCHAR(255) NOT NULL,
---   `user_email` VARCHAR(80) NOT NULL,
---   `user_filiere` VARCHAR(80) NOT NULL,
---   `user_name` VARCHAR(50) NOT NULL,
---   `user_sharedLink1` VARCHAR(255) NOT NULL,
---   `user_sharedLink2` VARCHAR(255),
---   `user_sharedLink3` VARCHAR(255),
---   PRIMARY KEY (`user_id`));
 
-
--- -----------------------------------------------------
 -- Table `joboffers`
+
 -- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS `joboffers`(
+
   `joboffer_id` INT NOT NULL AUTO_INCREMENT,
+
   `joboffer_title` VARCHAR(255) NOT NULL,
+
   `joboffer_description` TEXT NOT NULL,
-  `joboffer_price` VARCHAR(20) NOT NULL,
-  `joboffer_isWorker` BOOLEAN NOT NULL,
+
+  `joboffer_price` INT NOT NULL,
+
+  `joboffer_isWorker` VARCHAR(30) NOT NULL,
+
   `joboffer_localisation` VARCHAR(100) NOT NULL,
+
   `joboffer_image` TEXT NOT NULL,
-  `joboffer_duration` VARCHAR(100),
+
+  `joboffer_duration` INT,
+
   `joboffer_createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
   `user_email` VARCHAR(80) NOT NULL,
+
   `user_filiere` VARCHAR(80) NOT NULL,
+
   `user_name` VARCHAR(50) NOT NULL,
-  `user_sharedLink1` VARCHAR(255) NOT NULL,
-  `user_sharedLink2` VARCHAR(255),
-  `user_sharedLink3` VARCHAR(255),
-  PRIMARY KEY (`joboffer_id`);
 
+  `user_phone` VARCHAR(10),
 
+  `user_discord` VARCHAR(255),
 
--- Insertion des utilisateurs
-INSERT INTO users (user_email, user_description, user_filiere, user_hashedPassword, user_name, user_sharedLink1, user_sharedLink2, user_sharedLink3) 
-VALUES 
-('john.doe@example.com', 'Étudiant en informatique', 'Informatique', 'hashed_password_here', 'John Doe', 'https://github.com/johndoe', 'https://linkedin.com/in/johndoe', 'https://twitter.com/johndoe'),
-('jane.doe@example.com', 'Étudiant en marketing', 'Marketing', 'another_hashed_password', 'Jane Doe', 'https://github.com/janedoe', 'https://linkedin.com/in/janedoe', NULL),
-('emily.smith@example.com', 'Étudiant en design', 'Design', 'yet_another_hashed_password', 'Emily Smith', 'https://dribbble.com/emilysmith', NULL, NULL),
-('michael.jones@example.com', 'Étudiant en droit', 'Droit', 'another_hashed_password_here', 'Michael Jones', 'https://linkedin.com/in/michaeljones', NULL, NULL);
+  PRIMARY KEY (`joboffer_id`)
 
+);
 
--- Insertion des annonces
-INSERT INTO joboffers (joboffer_title, joboffer_description, joboffer_price, joboffer_isWorker, joboffer_localisation, joboffer_duration, id_user) 
-VALUES 
-('Développement d''une application mobile', 'Je recherche quelqu''un pour développer une application mobile simple.', 300, false, 'Paris', '2 semaines', 1),
-('Besoin d''un logo', 'Je peux créer un logo professionnel pour votre entreprise.', 100, true, 'Lyon', '1 semaine', 2),
-('Aide en mathématiques', 'Je propose des cours de mathématiques pour les étudiants en première année.', 50, true, 'Marseille', '1 mois', 1),
-('Conception de site web', 'Je peux concevoir et développer un site web pour vous.', 500, true, 'Lille', '3 semaines', 3),
-('Recherche rédacteur pour blog', 'Je recherche un rédacteur pour mon blog sur le marketing.', 150, false, 'Strasbourg', '4 semaines', 2),
-('Service de babysitting', 'Je propose des services de babysitting pendant les weekends.', 40, true, 'Bordeaux', 'Indéfini', 4),
-('Aide à la rédaction de CV', 'Je peux vous aider à rédiger un CV professionnel.', 30, true, 'Nantes', '1 semaine', 4),
-('Organisation d''événements', 'Je peux aider à organiser des petits événements ou fêtes.', 200, true, 'Toulouse', '2 semaines', 3);
+INSERT INTO joboffers (
+  joboffer_title,
+  joboffer_description,
+  joboffer_price,
+  joboffer_isWorker,
+  joboffer_localisation,
+  joboffer_image,
+  joboffer_duration,
+  user_email,
+  user_filiere,
+  user_name,
+  user_phone,
+  user_discord
+) VALUES 
+('Offre d\'emploi 1', 'Description de l\'offre 1', 1000, 'Oui', 'Lyon, France', 'image1.jpg', 12, 'email1@example.com', 'Informatique', 'John Doe', '1234567890', 'john.doe#1234'),
+('Offre d\'emploi 2', 'Description de l\'offre 2', 800, 'Non', 'Paris, France', 'image2.jpg', 6, 'email2@example.com', 'Marketing', 'Alice Smith', '9876543210', 'alice.smith#5678'),
+('Offre d\'emploi 3', 'Description de l\'offre 3', 1200, 'Oui', 'Berlin, Allemagne', 'image3.jpg', 9, 'email3@example.com', 'Ingénierie', 'Bob Johnson', '5555555555', 'bob.johnson#9999'),
+('Offre d\'emploi 4', 'Description de l\'offre 4', 600, 'Non', 'New York, États-Unis', 'image4.jpg', 3, 'email4@example.com', 'Ventes', 'Eva Brown', '1111111111', 'eva.brown#7777'),
+('Offre d\'emploi 5', 'Description de l\'offre 5', 1500, 'Oui', 'Londres, Royaume-Uni', 'image5.jpg', 12, 'email5@example.com', 'Finance', 'Sophie White', '2222222222', 'sophie.white#5555'),
+('Offre d\'emploi 6', 'Description de l\'offre 6', 700, 'Non', 'Barcelone, Espagne', 'image6.jpg', 6, 'email6@example.com', 'Ressources humaines', 'David Green', '3333333333', 'david.green#8888'),
+('Offre d\'emploi 7', 'Description de l\'offre 7', 1100, 'Oui', 'Sydney, Australie', 'image7.jpg', 9, 'email7@example.com', 'Médical', 'Laura Wilson', '4444444444', 'laura.wilson#6666'),
+('Offre d\'emploi 8', 'Description de l\'offre 8', 900, 'Non', 'Tokyo, Japon', 'image8.jpg', 6, 'email8@example.com', 'Éducation', 'Michael Lee', '9999999999', 'michael.lee#1111'),
+('Offre d\'emploi 9', 'Description de l\'offre 9', 1300, 'Oui', 'Toronto, Canada', 'image9.jpg', 12, 'email9@example.com', 'Art', 'Olivia Taylor', '7777777777', 'olivia.taylor#4444'),
+('Offre d\'emploi 10', 'Description de l\'offre 10', 750, 'Non', 'Mexico City, Mexique', 'image10.jpg', 3, 'email10@example.com', 'Ingénierie', 'Daniel Garcia', '6666666666', 'daniel.garcia#2222');
