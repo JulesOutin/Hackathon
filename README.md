@@ -1,6 +1,7 @@
 # Hackathon Ynov
 
 **Projet de Hackathon : Plateforme de Services entre Étudiants Ynov**
+LIEN du TRELLO : https://trello.com/b/e2DDqIKc
 
 **Objectif du Projet :**
 L'objectif principal de ce projet de Hackathon est de développer une plateforme alternative à Allovoisin, spécifiquement adaptée à la communauté étudiante d'Ynov. Cette plateforme permettra aux étudiants de solliciter et d'offrir des services au sein des différents campus d'Ynov, favorisant ainsi la collaboration et l'entraide au sein de l'école.
@@ -33,9 +34,7 @@ Cela comprend donc :
 - Développement des pages web, composants React, menu, etc
 - Développement des différentes fonctionnalités : poster une annonce, liste des annonces, filtres, etc
 - Design du site avec le CSS
+- Développement back-end, configuration de la base de donnée...
 
-4. Traitement des erreurs
-On ajoute les options pour traiter les erreurs (400, 500...)
-
-5. Finalisation
+4. Finalisation
 On remet tout en commun et on effectue les derniers ajustements pour que tout soit opérationnel.
