@@ -15,6 +15,7 @@ const Campus = () => {
         "Aix-en-Provence",
         "Strasbourg",
     ];
+    
     useEffect(() => {
         const selectCampus = document.getElementById("Campus");
         Campusynov.sort();
