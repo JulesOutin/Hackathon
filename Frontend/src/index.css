@@ -23,18 +23,48 @@
     src: url("../src/01.assets/fonts/Poppins-SemiBold.ttf");
 }
 
-:root {
-    --primary: #E11D58;
-    --title: #080B12;
-    --text: #0F172A;
-    --placeholder: #969A9C;
-    --border: #E9E8E7;
+
+
+
+.grotesk-price {
+    @apply font-customGrotesk font-black text-5xl leading-6 tracking-tighter text-primary
+}
+
+.grotesk-title {
+    @apply font-customGrotesk font-extrabold text-4xl leading-7 tracking-tighter text-black
+}
+
+.custom-text {
+    @apply font-customRegular text-xl leading-6 tracking-tighter text-customText
+}
+
+.text-button {
+    @apply font-customSemibold text-lg leading-6 tracking-tighter text-white
+}
+
+.text-button-alternatif {
+    @apply font-customSemibold text-lg leading-6 tracking-tighter text-primary
+}
+
+.custom-placeholder {
+    @apply font-customRegular text-base leading-6 tracking-tighter text-customPlaceholder
+}
+
+.nom-filiere {
+    @apply font-customRegular text-base leading-5 tracking-tighter text-customPlaceholder
+}
+
+.titre-detail-annonce {
+    @apply font-customMedium font-extrabold text-4xl leading-6 tracking-tight text-black
 }
 
 
 
+
+
+
 .sukui-h1 {
-    @apply text-slate-900 text-5xl font-extrabold
+    @apply text-slate-900 text-5xl font-extrabold font-customGrotesk
 }
 
 .sukui-h2 {
@@ -92,28 +122,3 @@
     margin: 0px 30px; /* indquer les marges gauche et droite */
 }
 
-h1
-{
-    font-size: 2rem;
-    font-weight: bold;    
-    margin-bottom: 2rem; /* Marge en bas du titre */
-    color: black;
-    text-align: center;
-
-}
-h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem; /* Marge en bas du titre */
-    color: black;
-    text-align: center;
-
-}
-
-p {
-    font-size: 1rem;
-    margin-bottom: 1rem; /* Marge en bas du titre */
-    color: black;
-
-}

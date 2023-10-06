@@ -21,16 +21,6 @@ const getAJoboffer = (req, res) => {
         .catch((err) => res.status(500).send("Error getting data from database", err))
 }
 
-const getAllJobofferFromUser = (req, res) => {
-    const { user_Id } = Number(req.params.userId);
-
-    database
-        .query(`SELECT * FROM joboffers WHERE id_user = ${user_Id}`)
-        .then(([joboffer]) => res.json(joboffer))
-        .catch((err) => res.status(500).send("Error getting data from database", err))
-}
-
-
 const createAJoboffer = (req, res) => {
 
     const {
@@ -89,54 +79,66 @@ const createAJoboffer = (req, res) => {
 };
 
 
+/* ------------------------------------------------------------------------
+Suite du Controller joboffer non utilisé (Pour prochain sprint : crud annonces)
+------------------------------------------------------------------------- */
+
+
+// const getAllJobofferFromUser = (req, res) => {
+//     const { user_Id } = Number(req.params.userId);
+
+//     database
+//         .query(`SELECT * FROM joboffers WHERE id_user = ${user_Id}`)
+//         .then(([joboffer]) => res.json(joboffer))
+//         .catch((err) => res.status(500).send("Error getting data from database", err))
+// }
+
+
 
 // Update
 
-const changeAJoboffer = (req, res) => {
-    const { joboffer_Id } = Number(req.params.jobofferId);
+// const changeAJoboffer = (req, res) => {
+//     const { joboffer_Id } = Number(req.params.jobofferId);
   
-    const { 
-        joboffer_title, 
-        joboffer_description, 
-        joboffer_price, 
-        joboffer_isWorker, 
-        joboffer_localisation, 
-        joboffer_duration 
-    } = req.body;
+//     const { 
+//         joboffer_title, 
+//         joboffer_description, 
+//         joboffer_price, 
+//         joboffer_isWorker, 
+//         joboffer_localisation, 
+//         joboffer_duration 
+//     } = req.body;
 
-    database
-        .query(`UPDATE joboffers SET joboffer_title = ?, joboffer_description = ?, joboffer_price = ?, joboffer_isWorker = ?, joboffer_localisation = ?, joboffer_duration = ? WHERE joboffer_id = ${joboffer_Id}`, 
-        [
-            joboffer_title, 
-            joboffer_description, 
-            joboffer_price, 
-            joboffer_isWorker, 
-            joboffer_localisation, 
-            joboffer_duration,
-        ])
-        .then(() => res.send("Joboffer updated"))
-        .catch((err) => res.status(500).send("Error updating joboffer", err))
-}
+//     database
+//         .query(`UPDATE joboffers SET joboffer_title = ?, joboffer_description = ?, joboffer_price = ?, joboffer_isWorker = ?, joboffer_localisation = ?, joboffer_duration = ? WHERE joboffer_id = ${joboffer_Id}`, 
+//         [
+//             joboffer_title, 
+//             joboffer_description, 
+//             joboffer_price, 
+//             joboffer_isWorker, 
+//             joboffer_localisation, 
+//             joboffer_duration,
+//         ])
+//         .then(() => res.send("Joboffer updated"))
+//         .catch((err) => res.status(500).send("Error updating joboffer", err))
+// }
 
 
-// Delete
+// // Delete
 
-const deleteAJoboffer = (req, res) => {
-    const joboffer_id = Number(req.params.jobofferId);
+// const deleteAJoboffer = (req, res) => {
+//     const joboffer_id = Number(req.params.jobofferId);
 
-    database
-        .query('DELETE FROM joboffers WHERE joboffer_id = ?', [joboffer_id])
-        .then(() => res.send("Joboffer deleted"))
-        .catch((err) => res.status(500).send("Error deleting Joboffer", err))
-}
+//     database
+//         .query('DELETE FROM joboffers WHERE joboffer_id = ?', [joboffer_id])
+//         .then(() => res.send("Joboffer deleted"))
+//         .catch((err) => res.status(500).send("Error deleting Joboffer", err))
+// }
 
 
 
 module.exports = {
     getAllJoboffer,
     getAJoboffer,
-    getAllJobofferFromUser,
     createAJoboffer,
-    changeAJoboffer,
-    deleteAJoboffer,
 }

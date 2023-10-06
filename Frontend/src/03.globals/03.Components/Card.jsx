@@ -1,15 +1,19 @@
 import React from 'react';
-import './Card.css';
-import Image from "../../Img/image.jpg";
+import { NavLink } from 'react-router-dom';
 
-const Card = ({ title, tarif }) => {
+const Card = ({ description, duration, id, image, isWorker, localisation, price, title, discord, email, filiere, name, phone }) => {
     return (
-      <div id="card">
-        <img src={Image} alt="" />
-        <h2>{title}</h2>
-        <p>Petite description</p>
-        <h1>{tarif} euros</h1>
-      </div>
+      <NavLink to={`/annonce/${id}`}>
+        <div className='w-[296px] h-[365px] gap-2 flex flex-col duration-300 hover:shadow-sm' id="card">
+          <img className='h-[280px] object-cover rounded-md ' src={image} alt="" />
+          <div>
+            <p className='nom-filiere'>{filiere}</p>
+            <h2 className='custom-text'>{title}</h2>
+            <h1 className='grotesk-price'>{price} €</h1>
+
+          </div>
+        </div>
+      </NavLink>
     );
   };
 
