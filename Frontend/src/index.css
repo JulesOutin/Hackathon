@@ -3,9 +3,68 @@
 @tailwind utilities;
 
 
+@font-face {
+    font-family: "grotesk";
+    src: url("../src/01.assets/fonts/DarkerGrotesque-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "poppins-regular";
+    src: url("../src/01.assets/fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+    font-family: "poppins-medium";
+    src: url("../src/01.assets/fonts/Poppins-Medium.ttf");
+}
+
+@font-face {
+    font-family: "poppins-semibold";
+    src: url("../src/01.assets/fonts/Poppins-SemiBold.ttf");
+}
+
+
+
+
+.grotesk-price {
+    @apply font-customGrotesk font-black text-5xl leading-6 tracking-tighter text-primary
+}
+
+.grotesk-title {
+    @apply font-customGrotesk font-extrabold text-4xl leading-7 tracking-tighter text-black
+}
+
+.custom-text {
+    @apply font-customRegular text-xl leading-6 tracking-tighter text-customText
+}
+
+.text-button {
+    @apply font-customSemibold text-lg leading-6 tracking-tighter text-white
+}
+
+.text-button-alternatif {
+    @apply font-customSemibold text-lg leading-6 tracking-tighter text-primary
+}
+
+.custom-placeholder {
+    @apply font-customRegular text-base leading-6 tracking-tighter text-customPlaceholder
+}
+
+.nom-filiere {
+    @apply font-customRegular text-base leading-5 tracking-tighter text-customPlaceholder
+}
+
+.titre-detail-annonce {
+    @apply font-customMedium font-extrabold text-4xl leading-6 tracking-tight text-black
+}
+
+
+
+
+
 
 .sukui-h1 {
-    @apply text-slate-900 text-5xl font-extrabold
+    @apply text-slate-900 text-5xl font-extrabold font-customGrotesk
 }
 
 .sukui-h2 {
@@ -21,11 +80,11 @@
 }
 
 .sukui-button {
-    @apply bg-slate-900 text-slate-100 py-3 px-5 rounded-lg font-semibold duration-500;
+    @apply bg-primary text-slate-100 py-3 px-5 rounded-lg font-semibold duration-500;
 }
 
 .sukui-button:hover {
-    @apply bg-slate-700
+    @apply bg-primraryLight
 }
 
 .sukui-button2 {
@@ -37,15 +96,19 @@
 }
 
 .sukui-input {
-    @apply border border-slate-300 text-slate-500 py-3 px-5 rounded-lg bg-slate-100 w-full duration-700
+    @apply border border-gray-300 text-gray-500 py-3 px-4 outline-none rounded-lg w-full duration-700 
 }
 
 .sukui-input:focus {
-    @apply outline-slate-800
+    @apply outline-primary
 }
 
 .sukui-select {
-    @apply border border-slate-300 text-slate-500 py-3 px-5 rounded-lg bg-slate-100 w-full outline-none
+    @apply border border-gray-300 text-gray-500 py-3 px-4 rounded-lg outline-none w-full tracking-tight duration-700
+}
+
+.sukui-select:focus {
+    @apply outline-primary
 }
 
 /* dashboard */
@@ -58,6 +121,4 @@
     width: calc(100% - 144px); /* 144px = indiquer la largeur de la sidebar */
     margin: 0px 30px; /* indquer les marges gauche et droite */
 }
-
-
 
