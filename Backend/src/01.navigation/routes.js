@@ -3,7 +3,6 @@ const router = express.Router();
 
 
 const jobofferController = require("../02.controllers/joboffer.controller");
-const userController = require("../02.controllers/user.controller");
 
 
 /* ------------------------------------------------------------------------
@@ -11,26 +10,28 @@ Routes Joboffers
 ------------------------------------------------------------------------- */
 
 router.get("/api/joboffers", jobofferController.getAllJoboffer) /*ok*/
-
 router.get("/api/joboffers/:jobofferId", jobofferController.getAJoboffer) /*ok*/
-router.get("/api/joboffers/users/:userId", jobofferController.getAllJobofferFromUser)
 
 router.post("/api/joboffers", jobofferController.createAJoboffer) 
 
 
-router.put("/api/joboffers/:jobofferId", jobofferController.changeAJoboffer)
+/* ------------------------------------------------------------------------
+Routes Joboffers (non utilisé : pour prochain sprint : crud annonces)
+------------------------------------------------------------------------- */
 
-router.delete("/api/joboffers/:jobofferId", jobofferController.deleteAJoboffer)
+// router.get("/api/joboffers/users/:userId", jobofferController.getAllJobofferFromUser)
+// router.put("/api/joboffers/:jobofferId", jobofferController.changeAJoboffer)
+// router.delete("/api/joboffers/:jobofferId", jobofferController.deleteAJoboffer)
 
 
 /* ------------------------------------------------------------------------
-Routes Users
+Routes Users (Pour prochain sprint : crud user)
 ------------------------------------------------------------------------- */
 
-router.get("/api/users", userController.getAllUser) /*ok*/
-router.get("/api/users/:userId", userController.getAUser) /*ok*/
+// router.get("/api/users", userController.getAllUser) /*ok*/
+// router.get("/api/users/:userId", userController.getAUser) /*ok*/
 
-router.post("/api/users", userController.createAUser) /*ok*/
+// router.post("/api/users", userController.createAUser) /*ok*/
 
 
 

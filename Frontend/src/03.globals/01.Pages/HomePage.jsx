@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../03.Components/Navbar";
 import Footer from "../03.Components/Footer";
 import Card from "../03.Components/Card";
-import "./HomePage.css";
 import Campus from "../03.Components/Campus";
 import Filiere from "../03.Components/Filiere";
 
@@ -50,13 +49,13 @@ const HomePage = () => {
   
 
   return (
-    <div className="h-full max-w-7xl m-auto w-full p-6 flex flex-col">
+    <div className="h-full max-w-7xl m-auto w-full p-6 pb-20 flex flex-col">
       <Campus />
       <Filiere />
       <Navbar />
       <div>
         {/* Création de la barre de recherche */}
-        <div className="my-14">
+        <div className="my-14 max-w-5xl m-auto">
 
           <div id="searchBar">
             <input
@@ -70,7 +69,7 @@ const HomePage = () => {
           <label id="labelTitle" htmlFor="">
             Choisir les filtres
           </label>
-          <div className="gap-2 max-w-5xl m-auto" id="filter">
+          <div className="gap-2 max-w-5xl m-auto flex" id="filter">
             {/* Création des input pour les filtres */}
             <select 
               className="sukui-select"
@@ -112,7 +111,7 @@ const HomePage = () => {
             </select>
           </div>
         </div>
-        <div className="flex flex-wrap gap-2 max-w-7xl" id="cards">
+        <div className="flex flex-wrap gap-x-2 gap-y-12 max-w-7xl" id="cards">
           {/* Affichage des cards */}
           {
             Array.isArray(filteredData) && filteredData

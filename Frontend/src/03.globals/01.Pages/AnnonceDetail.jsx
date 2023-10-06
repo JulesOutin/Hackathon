@@ -25,7 +25,7 @@ const AnnonceDetail = () => {
 
 
     return (
-        <div className='py-6 min-h-screen max-w-7xl m-auto'>
+        <div className='py-6 min-h-screen max-w-7xl m-auto p-6 pb-20 w-full'>
             <Navbar />
             <div>
                 <img src={data[0].joboffer_image} className='w-full object-cover h-[378px] rounded-2xl my-14' alt="" />
