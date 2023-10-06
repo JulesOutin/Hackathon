@@ -7,13 +7,14 @@ const Card = ({ description, duration, id, image, isWorker, localisation, price,
     // chaque jour les grenouilles disent
     // tu vieillis, tu vieillis
 
-    let frog;
+    // Ajout du Haiku
+    //let frog;
 
-      array.forEach(cabin => {
-          while (frog === -1) {
-              frog = "you grow old"
-          }
-      });
+      //array.forEach(cabin => {
+      //    while (frog === -1) {
+      //        frog = "you grow old"
+      //    }
+      //});
     
     return (
       <NavLink to={`/annonce/${id}`}>
